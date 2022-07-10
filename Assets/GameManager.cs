@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,15 +16,26 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         currentLife = lifeCount;
+        lifeUI.Add(knifeCountGo.GetComponent<Image>());
         for (int i = 1; i < lifeCount; i++)
         {
-            Instantiate(knifeCountGo, knifeCountGo.transform);
+            var newLifeGo = Instantiate(knifeCountGo, knifeCountGo.transform.parent);
+            lifeUI.Add(newLifeGo.GetComponent<Image>());
         }
     }
+    public CanvasGroup gameoverUICanvasGroup;
     public int currentLife;
+    private float duration = 0.5f;
+
     public void UseLife()
     {
         currentLife--;
-        lifeUI[currentLife - 1].sprite = usedKnife;
+        lifeUI[lifeUI.Count - currentLife - 1].sprite = usedKnife;
+        if (currentLife == 0)// GameOverUIÇ¥½Ã
+        {
+            gameoverUICanvasGroup.gameObject.SetActive(true);
+            gameoverUICanvasGroup.alpha = 0;
+            gameoverUICanvasGroup.DOFade(1, duration);
+        }
     }
 }

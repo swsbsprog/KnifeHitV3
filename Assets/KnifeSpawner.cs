@@ -15,7 +15,7 @@ public class KnifeSpawner : MonoBehaviour
     public Knife knife;
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Knife newKnife = Instantiate(knife);
             newKnife.enabled = true;

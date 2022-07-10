@@ -29,6 +29,7 @@ public class Knife : MonoBehaviour
             case "Apple":
                 // 보드에 칼이 꽂힌걸 연출
                 // 점수 증가.
+                print("점수 증가");
                 break;
             case "Knife":
                 // 칼이 팅겨 나가게 하기
