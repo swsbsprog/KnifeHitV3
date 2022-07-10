@@ -30,6 +30,7 @@ public class GameBoard : MonoBehaviour
     public int appleMax = 4;
     public float appleDistance = 1.8f;
 
+    public GameObject applePrefab;
     private void MakeApples()
     {
         var center = transform.position;
@@ -40,7 +41,7 @@ public class GameBoard : MonoBehaviour
             float rotation = Random.Range(0, 360);
 
 
-            GameObject newApple = new GameObject("Apple");
+            GameObject newApple = Instantiate(applePrefab);
             newApple.transform.rotation = Quaternion.Euler(0, 0, rotation);
             newApple.transform.position = center;
             //newApple.transform.SetPositionAndRotation(center, Quaternion.Euler(0, 0, rotation));
@@ -49,10 +50,10 @@ public class GameBoard : MonoBehaviour
 
             //newApple.transform.localPosition = new Vector3(0, 0, appleDistance); // 안되는 로직.
             newApple.transform.localPosition = newApple.transform.right * appleDistance;
-            newApple.AddComponent<SpriteRenderer>().sprite = apple;
-            newApple.tag = "Apple";
-            CircleCollider2D circleCollider2D = newApple.AddComponent<CircleCollider2D>();
-            circleCollider2D.radius = 0.3f;
+            //newApple.AddComponent<SpriteRenderer>().sprite = apple;
+            //newApple.tag = "Apple";
+            //CircleCollider2D circleCollider2D = newApple.AddComponent<CircleCollider2D>();
+            //circleCollider2D.radius = 0.3f;
             var direction = (newApple.transform.position - center);
             newApple.transform.right = direction;
             newApple.transform.Rotate(new Vector3(0, 0, -90), Space.Self);
