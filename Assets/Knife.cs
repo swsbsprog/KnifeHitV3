@@ -10,6 +10,7 @@ public class Knife : MonoBehaviour
     void Start()
     {
         print("Start");
+        rigidbody2D = GetComponent<Rigidbody2D>();
         rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         rigidbody2D.AddForce(force, ForceMode2D.Impulse);
     }
