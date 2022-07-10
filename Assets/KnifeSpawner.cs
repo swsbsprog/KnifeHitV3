@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class KnifeSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        knife = FindObjectOfType<Knife>();
     }
 
-    // Update is called once per frame
+
+    public Knife knife;
     void Update()
     {
-        
+        if (Input.anyKeyDown)
+        {
+            Knife newKnife = Instantiate(knife);
+            newKnife.enabled = true;
+            newKnife.GetComponent<Collider2D>().enabled = true;
+            //print($"old:{knife.transform.position} :new {newKnife.transform.position}" );
+        }
     }
 }

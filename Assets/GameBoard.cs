@@ -20,4 +20,5 @@ public class GameBoard : MonoBehaviour
             ).SetEase(ease)
             .SetLoops(-1, LoopType.Incremental);
     }
+
 }

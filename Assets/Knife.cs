@@ -14,4 +14,25 @@ public class Knife : MonoBehaviour
         rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         rigidbody2D.AddForce(force, ForceMode2D.Impulse);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var knifeTr = transform;
+        var tag = collision.gameObject.tag;
+        switch (tag)
+        {
+            case "GameBoard":
+                print(collision.contacts[0].point);
+                knifeTr.position = collision.contacts[0].point;
+                rigidbody2D.bodyType = RigidbodyType2D.Static;
+                knifeTr.SetParent(collision.transform); // 칼의 부모를 GameBoard로 설정.
+                break;
+            case "Apple":
+                // 보드에 칼이 꽂힌걸 연출
+                // 점수 증가.
+                break;
+            case "Knife":
+                // 칼이 팅겨 나가게 하기
+                break;
+        }
+    }
 }

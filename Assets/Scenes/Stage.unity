@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c23c1c9f1ddee84caae5752bf8441b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knife: {fileID: 0}
 --- !u!4 &381287713
 Transform:
   m_ObjectHideFlags: 0
@@ -635,7 +636,7 @@ GameObject:
   - component: {fileID: 524052236}
   m_Layer: 0
   m_Name: BulletKnife
-  m_TagString: Untagged
+  m_TagString: Knife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -700,7 +701,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524052233}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04, y: -3.4, z: 0}
+  m_LocalPosition: {x: 0, y: -2.521, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -714,13 +715,13 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524052233}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.9444444}
   m_Size: {x: 0.3888889, y: 1.8888888}
   m_Direction: 0
 --- !u!50 &524052237
@@ -731,7 +732,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524052233}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -742,7 +743,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: f36e4dd0e2146ef4987d56e4c212e4f3, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &524052238
 MonoBehaviour:
@@ -751,13 +752,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524052233}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ad41813d66b34448af8304d5650e4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 524052237}
-  force: {x: 0, y: 10}
+  force: {x: 0, y: 50}
 --- !u!1 &535090312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1074,7 @@ GameObject:
   - component: {fileID: 784393076}
   m_Layer: 0
   m_Name: GameBoard
-  m_TagString: Untagged
+  m_TagString: GameBoard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1138,7 +1139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784393072}
   m_LocalRotation: {x: -0, y: 0, z: -0.049023535, w: -0.9987977}
-  m_LocalPosition: {x: 0.01, y: 1.29, z: 0}
+  m_LocalPosition: {x: 0, y: 1.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
