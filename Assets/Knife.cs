@@ -14,6 +14,7 @@ public class Knife : MonoBehaviour
         rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         rigidbody2D.AddForce(force, ForceMode2D.Impulse);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var knifeTr = transform;
@@ -30,6 +31,8 @@ public class Knife : MonoBehaviour
                 // 보드에 칼이 꽂힌걸 연출
                 // 점수 증가.
                 print("점수 증가");
+                GameManager.Instance.AddScore(1);
+                Destroy(collision.gameObject); // 사과
                 break;
             case "Knife":
                 // 칼이 팅겨 나가게 하기

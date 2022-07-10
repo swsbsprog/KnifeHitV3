@@ -2,12 +2,14 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameBoard : MonoBehaviour
 {
     public float minAngle = 1000f;
     public float maxAngle = 1200f;
     public Ease ease = Ease.InOutQuint;
+
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class GameBoard : MonoBehaviour
     public int appleMin = 2;
     public int appleMax = 4;
     public float appleDistance = 1.8f;
+
     private void MakeApples()
     {
         var center = transform.position;
@@ -35,6 +38,8 @@ public class GameBoard : MonoBehaviour
         for (int i = 0; i < appleCount; i++)
         {
             float rotation = Random.Range(0, 360);
+
+
             GameObject newApple = new GameObject("Apple");
             newApple.transform.rotation = Quaternion.Euler(0, 0, rotation);
             newApple.transform.position = center;
@@ -43,11 +48,12 @@ public class GameBoard : MonoBehaviour
             //newApple.transform.parent = transform; // 
 
             //newApple.transform.localPosition = new Vector3(0, 0, appleDistance); // 안되는 로직.
-            newApple.transform.localPosition = newApple.transform.up * appleDistance;
+            newApple.transform.localPosition = newApple.transform.right * appleDistance;
             newApple.AddComponent<SpriteRenderer>().sprite = apple;
             newApple.tag = "Apple";
-
-            var direction = (newApple.transform.position - center).normalized;
+            CircleCollider2D circleCollider2D = newApple.AddComponent<CircleCollider2D>();
+            circleCollider2D.radius = 0.3f;
+            var direction = (newApple.transform.position - center);
             newApple.transform.right = direction;
             newApple.transform.Rotate(new Vector3(0, 0, -90), Space.Self);
         }
