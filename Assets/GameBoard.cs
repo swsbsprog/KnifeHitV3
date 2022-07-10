@@ -38,10 +38,18 @@ public class GameBoard : MonoBehaviour
             GameObject newApple = new GameObject("Apple");
             newApple.transform.rotation = Quaternion.Euler(0, 0, rotation);
             newApple.transform.position = center;
+            //newApple.transform.SetPositionAndRotation(center, Quaternion.Euler(0, 0, rotation));
             newApple.transform.SetParent(transform);
-            newApple.transform.localPosition = newApple.transform.right * appleDistance;
+            //newApple.transform.parent = transform; // 
+
+            //newApple.transform.localPosition = new Vector3(0, 0, appleDistance); // 안되는 로직.
+            newApple.transform.localPosition = newApple.transform.up * appleDistance;
             newApple.AddComponent<SpriteRenderer>().sprite = apple;
             newApple.tag = "Apple";
+
+            var direction = (newApple.transform.position - center).normalized;
+            newApple.transform.right = direction;
+            newApple.transform.Rotate(new Vector3(0, 0, -90), Space.Self);
         }
     }
 }
